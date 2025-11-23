@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: instalaciones-garcias-backend
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: pnpm install
+    startCommand: pnpm start
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: SUPABASE_DB_PASSWORD
+        sync: false
+    healthCheckPath: /api/proyectos

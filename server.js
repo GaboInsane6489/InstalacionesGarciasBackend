@@ -8,7 +8,13 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:4321", "http://localhost:3000"],
+    origin: [
+      "http://localhost:4321",
+      "http://localhost:3000",
+      "https://instalacionesgarciasfronted.vercel.app",
+      "https://instalaciones-garcias.com",
+      "https://www.instalaciones-garcias.com",
+    ],
     credentials: true,
   })
 );
@@ -24,7 +30,15 @@ app.use("/api/simulador", simuladorRoutes);
 app.use("/api/leads", leadsRoutes);
 app.use("/api/proyectos", proyectosRoutes);
 
-// Health Check
+// Health Check endpoint for monitoring services
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+  });
+});
+
+// Root endpoint
 app.get("/", (req, res) => {
   res.json({
     status: "ok",
