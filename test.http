@@ -1,0 +1,47 @@
+### Test Simulador - Tiempo
+POST http://localhost:3000/api/simulador/tiempo
+Content-Type: application/json
+
+{
+  "area": 50,
+  "serviceType": "drywall",
+  "finish": "standard",
+  "painting": false
+}
+
+###
+
+### Test Simulador - Materiales
+POST http://localhost:3000/api/simulador/materiales
+Content-Type: application/json
+
+{
+  "area": 50,
+  "serviceType": "drywall"
+}
+
+###
+
+### Test Leads - Crear
+POST http://localhost:3000/api/leads
+Content-Type: application/json
+
+{
+  "nombre": "Juan Pérez",
+  "telefono": "+52 55 1234 5678",
+  "email": "juan@example.com",
+  "tipo_servicio": "Drywall",
+  "m2": 50,
+  "urgencia": "Alta",
+  "mensaje": "Necesito cotización para proyecto residencial"
+}
+
+###
+
+### Test Proyectos - Listar
+GET http://localhost:3000/api/proyectos
+
+###
+
+### Health Check
+GET http://localhost:3000/
